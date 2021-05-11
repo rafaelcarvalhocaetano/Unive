@@ -1,9 +1,5 @@
-import React from 'react'
+const Materials = () => (
+  <h1>Materials</h1>
+);
 
-const Materials = () => {
-  return (
-   <h1>Materials</h1>
-  )
-}
-
-export default Materials
+export default Materials;

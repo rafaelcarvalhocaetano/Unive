@@ -1,0 +1,44 @@
+{
+  "sidebar": [
+    {
+      "id": 1,
+      "path": "Dashboard",
+      "icon": "dashboard"
+    },
+    {
+      "id": 2,
+      "path": "Courses",
+      "icon": "courses"
+    },
+    {
+      "id": 3,
+      "path": "Materials",
+      "icon": "materials"
+    },
+    {
+      "id": 4,
+      "path": "Calendar",
+      "icon": "calendar"
+    },
+    {
+      "id": 5,
+      "path": "Transcripts",
+      "icon": "transcripts"
+    },
+    {
+      "id": 6,
+      "path": "Grades",
+      "icon": "grades"
+    },
+    {
+      "id": 7,
+      "path": "Attendance",
+      "icon": "attendance"
+    },
+    {
+      "id": 8,
+      "path": "Settings",
+      "icon": "settings"
+    }
+  ]  
+}

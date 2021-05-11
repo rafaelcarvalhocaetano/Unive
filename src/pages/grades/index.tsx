@@ -1,9 +1,5 @@
-import React from 'react'
+const Grades = () => (
+  <h1>Grades</h1>
+);
 
-const Grades = () => {
-  return (
-   <h1>Grades</h1>
-  )
-}
-
-export default Grades
+export default Grades;
