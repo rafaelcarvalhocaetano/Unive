@@ -1,21 +1,17 @@
-import { createStore, applyMiddleware } from 'redux'
-import createSagaMiddleware from 'redux-saga'
-import RootSaga from './redux/rootSaga';
-// import RootReducer from './redux/reducers/RootReducer'
-// import RootSaga from './redux/sagas/RootSaga'
+import { Store, createStore, applyMiddleware } from "redux";
+import createSagaMiddleware from "redux-saga";
+import RootReducer from "./redux/rootReducer";
+import RootSaga from "./redux/rootSaga";
+import { SidebarDataTypes } from "./redux/store/sidebar/types";
 
+export interface ApplicationState {
+  sidebar: SidebarDataTypes
+}
 
-const runSaga = createSagaMiddleware()
+const rootSagaStore = createSagaMiddleware();
 
-const composeEnhancers = typeof window === 'object' && window.REDUX_DEVTOOLS ?
-  window.REDUX_DEVTOOLS({}) : null;
-const enhancer = composeEnhancers(applyMiddleware(runSaga));
+const store: Store<ApplicationState> | any = createStore(RootReducer, applyMiddleware(rootSagaStore));
 
-const store = createStore(
-  // RootReducer,
-  enhancer
-)
+rootSagaStore.run(RootSaga);
 
-runSaga.run(RootSaga)
-
-export default store
+export default store;

@@ -2,7 +2,7 @@
   "sidebar": [
     {
       "id": 1,
-      "path": "Dashboard",
+      "path": "/",
       "icon": "dashboard"
     },
     {
