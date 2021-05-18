@@ -1,5 +1,6 @@
-import { SidebarTypes } from './types';
 import { action } from 'typesafe-actions';
+
+import { SidebarTypes } from './types';
 import { Sidebar } from '../../../models/sidebar';
 
 export const loaderRequestSidebar = () => action(SidebarTypes.LOADER_REQUEST);

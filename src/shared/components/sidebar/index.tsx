@@ -1,7 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { SidebarDataTypes } from '../../../redux/store/sidebar/types'
 
-const Sidebar = () => {
+const Sidebar = (props: any) => {
+console.log("🚀 ~ file: index.tsx ~ line 7 ~ Sidebar ~ props", props)
   return (
     <nav className="nav-container">
       <ul className="nav-menu-items">
@@ -35,4 +38,10 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+const mapStateToProps = (state: SidebarDataTypes) => {
+  return {
+    sidebar: state
+  }
+}
+
+export default connect(mapStateToProps)(Sidebar)
