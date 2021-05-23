@@ -1,0 +1,38 @@
+.item-sidebar {
+  width: 100%;
+  height: 34px;
+  margin-bottom: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__action {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .link {
+    height: 34px;
+    width: 100%;
+    display: flex;
+    padding: 0 20%;
+    &__icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 17px;
+      color: var(--color-white);
+    }
+    &__name {
+      text-transform: capitalize;
+      color: var(--color-white);
+      font-family: SF Pro Display;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19px;
+      letter-spacing: 0.02em;
+      text-align: left;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

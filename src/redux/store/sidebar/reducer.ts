@@ -1,17 +1,17 @@
 
 import { Reducer } from "redux";
-import { SidebarDataTypes, SidebarTypes } from "./types";
+import { SidebarDataState, SidebarTypes } from "./types";
 
-const INITIAL_STATE: SidebarDataTypes = {
+const INITIAL_STATE: SidebarDataState = {
   data: [],
   loading: false,
   error: false
 }
 
-const SidebarReducer: Reducer<SidebarDataTypes> = (state = INITIAL_STATE, action: any) => {
+const sidebarReducer: Reducer<SidebarDataState> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SidebarTypes.LOADER_REQUEST:
-      return { ...state, loading: true }
+      return { ...state, loading: true, error: false }
     case SidebarTypes.LOADER_SUCCESS:
       return { ...state, loading: false, error: false, data: action.payload }
     case SidebarTypes.LOADER_FAILURE:
@@ -21,4 +21,4 @@ const SidebarReducer: Reducer<SidebarDataTypes> = (state = INITIAL_STATE, action
   }
 }
 
-export default SidebarReducer;
+export default sidebarReducer;

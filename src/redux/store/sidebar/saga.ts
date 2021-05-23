@@ -1,5 +1,4 @@
-
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import api from '../../../service';
 import { loaderFailureSidebar, loaderSuccessSidebar } from './actions';
 import { SidebarTypes } from './types';
@@ -7,7 +6,7 @@ import { SidebarTypes } from './types';
 
 export function* requestSidebar() {
   try {
-    const { data } = yield call(api.get, '/sidebar');
+    const { data } = yield call(api.get, 'sidebar');
     yield put(loaderSuccessSidebar(data));
   } catch (error) {
     yield put(loaderFailureSidebar());
@@ -16,5 +15,5 @@ export function* requestSidebar() {
 
 
 export function* watchSidebarSaga() {
-  yield takeEvery(SidebarTypes.LOADER_REQUEST, requestSidebar)
+  yield takeLatest(SidebarTypes.LOADER_REQUEST, requestSidebar)
 }

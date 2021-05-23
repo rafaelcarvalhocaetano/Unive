@@ -6,7 +6,7 @@ export enum SidebarTypes {
   LOADER_FAILURE = '@univ/LOADER_FAILURE'
 }
 
-export interface SidebarDataTypes {
+export interface SidebarDataState {
   readonly data: Sidebar [],
   readonly loading: boolean,
   readonly error: boolean
