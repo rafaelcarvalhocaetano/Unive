@@ -8,39 +8,50 @@ import { ApplicationState } from '../../../store'
 import UNLink from '../UNLink'
 import logo from '../../../assets/icons/logo.svg'
 import closeIcon from '../../../assets/icons/arrow_back.svg'
-import info from '../../../assets/icons/info.svg'
 
 
 const UNSidebar = (props: any) => {
 
   const { requestSidebar, repository } = props
 
-  useEffect(() => {
+  const [showSide, setShowSide] = React.useState(false)
+
+  const sizedAction = () => {
     requestSidebar()
-  }, [requestSidebar])
+    const sizeWindows = window.screen.availWidth
+    if (sizeWindows <= 1024) {
+      setShowSide(true)
+      return
+    }
+    if (sizeWindows > 1024) {
+      setShowSide(false)
+      return
+    }
+  }
+
+  useEffect(() => {
+    sizedAction()
+  }, [false])
 
 
   return (
-    <nav className="un-sidebar">
+    <nav className={`un-sidebar ${showSide ? 'un-sidebar--close' : ''}`}>
       <div className="un-sidebar__element">
-        <button className="btn btn-action">
+        <button className={`btn btn-action ${showSide ? 'btn-action--center' : ''}`} onClick={() => setShowSide(!showSide)}>
           <img className="btn-action__img" src={closeIcon} alt="Close sidebar" />
         </button>
         <div className="logo">
           <img className="logo__img" src={logo} alt="logo Univ" />
-          <span className="logo__text">Univ</span>
+          {
+            !showSide && <span className="logo__text">Univ</span>
+          }
         </div>
       </div>
-      <ul className="un-sidebar__list">
+      <ul className={`un-sidebar__list `}>
         {
-          !repository.loading
-          &&
-          repository.data.map((resp: Sidebar, index: number) => <UNLink value={resp} key={index} />)
+          !repository.loading && repository.data.map((resp: Sidebar, index: number) => <UNLink value={resp} key={index} showTitle={showSide}/>)
         }
       </ul>
-      <div className="un-sidebar__info info">
-        <img src={info} alt="Information Univ" />
-      </div>
     </nav>
   )
 }

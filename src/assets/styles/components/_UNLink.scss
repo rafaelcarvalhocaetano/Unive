@@ -8,7 +8,10 @@
   &__action {
     display: flex;
     align-items: center;
-    margin: 0 auto;
+    &--show {
+      justify-content: center;
+      align-items: center;
+    }
   }
   .link {
     height: 34px;
@@ -20,17 +23,33 @@
       height: 18px;
       margin-right: 17px;
       color: var(--color-white);
+      &--show {
+        margin-right: 0;
+      }
     }
     &__name {
       text-transform: capitalize;
       color: var(--color-white);
-      font-family: SF Pro Display;
+      font-family: 'SF Pro Display';
       font-size: 16px;
-      font-weight: 400;
       line-height: 19px;
       letter-spacing: 0.02em;
       text-align: left;
     }
+    // @media (max-width: 112px) {
+    //   justify-content: center;
+    //   align-items: center;
+    //   padding: 0;
+    //   &__icon {
+    //     margin-right: 0;
+    //   }
+    // }
+    // &--show {
+    //   padding: 0;
+    //   justify-content: center;
+    //   align-items: center;
+    //   margin-right: 0;
+    // }
   }
   &:hover {
     cursor: pointer;
