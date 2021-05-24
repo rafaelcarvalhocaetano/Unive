@@ -11,7 +11,6 @@ export interface ApplicationState {
 const rootSagaStore = createSagaMiddleware();
 
 const store: Store<ApplicationState> | any = createStore(RootReducer, applyMiddleware(rootSagaStore));
-console.log("🚀 ~ file: store.ts ~ line 14 ~ store", store)
 
 rootSagaStore.run(RootSaga);
 
