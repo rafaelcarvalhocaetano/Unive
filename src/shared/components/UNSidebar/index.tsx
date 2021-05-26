@@ -37,9 +37,11 @@ const UNSidebar = (props: any) => {
   return (
     <nav className={`un-sidebar ${showSide ? 'un-sidebar--close' : ''}`}>
       <div className="un-sidebar__element">
-        <button className={`btn btn-action ${showSide ? 'btn-action--center' : ''}`} onClick={() => setShowSide(!showSide)}>
-          <img className="btn-action__img" src={closeIcon} alt="Close sidebar" />
-        </button>
+        {
+          !showSide && <button className={`btn btn-action ${showSide ? 'btn-action--center' : ''}`} onClick={() => setShowSide(!showSide)}>
+            <img className="btn-action__img" src={closeIcon} alt="Close sidebar" />
+          </button>
+        }
         <div className="logo">
           <img className="logo__img" src={logo} alt="logo Univ" />
           {
