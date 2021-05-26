@@ -16,8 +16,8 @@ const UNSidebar = (props: any) => {
 
   const [showSide, setShowSide] = React.useState(false)
 
-  const sizedAction = () => {
-    requestSidebar()
+  const sizedAction = async () => {
+    await requestSidebar()
     const sizeWindows = window.screen.availWidth
     if (sizeWindows <= 1024) {
       setShowSide(true)
@@ -38,7 +38,7 @@ const UNSidebar = (props: any) => {
     <nav className={`un-sidebar ${showSide ? 'un-sidebar--close' : ''}`}>
       <div className="un-sidebar__element">
         {
-          !showSide && <button className={`btn btn-action ${showSide ? 'btn-action--center' : ''}`} onClick={() => setShowSide(!showSide)}>
+          !showSide && <button className={`btn-action ${showSide ? 'btn-action--center' : ''}`} onClick={() => setShowSide(!showSide)}>
             <img className="btn-action__img" src={closeIcon} alt="Close sidebar" />
           </button>
         }

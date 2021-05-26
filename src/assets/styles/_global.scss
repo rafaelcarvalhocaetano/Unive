@@ -8,11 +8,6 @@
   flex-direction: column;
 }
 
-.btn {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  &:focus {
-    outline: none;
-  }
+.full-with {
+  width: 100%;
 }
