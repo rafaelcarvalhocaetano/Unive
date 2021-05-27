@@ -11,6 +11,7 @@
     &__find {
       @extend %input;
       color: var(--color-text);
+      margin-left: 5px;
       &::placeholder {
         color: var(--color-text);
       }
@@ -48,6 +49,17 @@
     &__btn-action {
       @extend %btn;
       background-color: transparent;
+      .icon-break {
+        display: none;
+      }
+      @media (max-width: 1024px) {
+        .icon-break {
+          display: inline-block;
+        }
+        .icon-full { 
+          display: none;
+        }
+      }
     }
     .description {
       &__name {

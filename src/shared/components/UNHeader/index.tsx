@@ -1,11 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import search from '../../../assets/icons/search.svg'
 import message from '../../../assets/icons/message.svg'
 import bell from '../../../assets/icons/bell.svg'
 import dotColumn from '../../../assets/icons/dot_column.svg'
+import sandwich from '../../../assets/icons/sandwich.svg'
 import user from '../../../assets/images/user.jpg'
 
-const UNHeader: React.FC<any> = () => {
+import { closeOrOpenSidebarWithHeader } from '../../../redux/store/sidebar/actions';
+import { ApplicationState } from '../../../store';
+
+const UNHeader: React.FC<any> = (props) => {
+
+  const { actionSidebar, showSidebar } = props
 
   return (
     <header className="un-header">
@@ -13,7 +21,6 @@ const UNHeader: React.FC<any> = () => {
         <img src={search} alt="Search course" className="un-search__img" />
         <input type="text" className="un-search__find" placeholder="Search course, student or instructor" />
       </div>
-      
       <div className="un-header__item un-info">
         <button className="un-info__btn">
           <img src={message} alt="Message information" />
@@ -26,12 +33,25 @@ const UNHeader: React.FC<any> = () => {
           <span className="description__name">Mia V</span>
           <span className="description__type">Student</span>
         </div>
-        <button className="un-info__btn-action">
-          <img src={dotColumn} alt="Message information" />
+        <button className="un-info__btn-action" onClick={() => actionSidebar(!showSidebar)}>
+          <img src={dotColumn} alt="Message information" className="icon-full" />
+          <img src={sandwich} alt="Message information" className="icon-break" />
         </button>
       </div>
     </header>
   )
 }
 
-export default UNHeader;
+const mapStateToProps = (state: ApplicationState) => {
+  return {
+    showSidebar: state.sidebarReducer.show
+  }
+}
+
+const mapDispatch = (dispatch: any) => {
+  return {
+    actionSidebar: (data: boolean) => dispatch(closeOrOpenSidebarWithHeader(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatch)(UNHeader);
