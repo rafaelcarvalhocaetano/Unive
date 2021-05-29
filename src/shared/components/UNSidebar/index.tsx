@@ -69,7 +69,6 @@ const mapStateToProps = (state: ApplicationState) => {
   }
 }
 
-// tipar
 const mapDispatchToProps = (dispatch: any) => ({
   requestSidebar: () => dispatch(loaderRequestSidebar()),
   closeOrOpenSidebar: (data: boolean) => dispatch(closeOrOpenSidebarWithHeader(data))
