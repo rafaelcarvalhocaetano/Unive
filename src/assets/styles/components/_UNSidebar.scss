@@ -55,4 +55,7 @@
   @media (min-width: 1024px) {
     position: relative;
   }
+  @media (max-width: 768px) {
+    position: absolute;
+  }
 }
