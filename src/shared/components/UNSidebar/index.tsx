@@ -42,9 +42,13 @@ const UNSidebar: React.FC<TypeUNSidebar> = (props) => {
     <nav className={`un-sidebar ${showSidebar ? 'un-sidebar--close' : ''}`}>
       <div className="un-sidebar__element">
         {
-          !showSidebar && <button className={`btn-action ${showSidebar ? 'btn-action--center' : ''}`} onClick={() => closeOrOpenSidebar(!showSidebar)}>
-            <img className="btn-action__img" src={closeIcon} alt="Close sidebar" />
-          </button>
+          !showSidebar
+          &&
+          (
+            <button className={`btn-action ${showSidebar ? 'btn-action--center' : ''}`} onClick={() => closeOrOpenSidebar(!showSidebar)}>
+              <img className="btn-action__img" src={closeIcon} alt="Close sidebar" />
+            </button>
+          )
         }
         <div className="logo">
           <img className="logo__img" src={logo} alt="logo Univ" />

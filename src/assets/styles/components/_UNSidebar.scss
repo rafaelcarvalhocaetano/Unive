@@ -17,6 +17,8 @@
       @extend %center-full;
       align-self: flex-end;
       transition: all 500ms ease-in-out;
+      position: sticky;
+      top: 1%;
       &--center {
         align-self: center;
         transform: rotate(180deg);
@@ -56,6 +58,13 @@
     position: relative;
   }
   @media (max-width: 768px) {
-    position: absolute;
+    // position: absolute;
+    // left: -300px;
+    &--close {
+    // width: 0;
+      // left: 0;
+      height: 100%;
+      // bottom: 0;
+    }
   }
 }
