@@ -59,6 +59,7 @@
     }
     @media (max-width: 1024px) {
       &__btn-action {
+        display: none;
         .icon-break {
           display: inline-block;
         }

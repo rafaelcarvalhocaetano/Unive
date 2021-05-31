@@ -17,12 +17,22 @@ interface TypeUNSidebar {
   closeOrOpenSidebar: (data: boolean) => void
   repository: SidebarDataState,
   showSidebar: boolean,
+  children: any,
+  headerComponent: any
 }
 
 
 const UNSidebar: React.FC<TypeUNSidebar> = (props) => {
 
-  const { requestSidebar, repository, showSidebar, closeOrOpenSidebar } = props
+  const { 
+    requestSidebar,
+    repository,
+    showSidebar,
+    closeOrOpenSidebar,
+    children,
+    headerComponent
+  } = props
+
 
   const sizedAction = (): boolean => {
     requestSidebar()
@@ -39,29 +49,17 @@ const UNSidebar: React.FC<TypeUNSidebar> = (props) => {
 
 
   return (
-    <nav className={`un-sidebar ${showSidebar ? 'un-sidebar--close' : ''}`}>
-      <div className="un-sidebar__element">
+    <nav className="un-sidebar">
+      <ul className={`un-sidebar__list ${!showSidebar ? 'un-sidebar__list--open' : ''}`}>
         {
-          !showSidebar
-          &&
-          (
-            <button className={`btn-action ${showSidebar ? 'btn-action--center' : ''}`} onClick={() => closeOrOpenSidebar(!showSidebar)}>
-              <img className="btn-action__img" src={closeIcon} alt="Close sidebar" />
-            </button>
-          )
-        }
-        <div className="logo">
-          <img className="logo__img" src={logo} alt="logo Univ" />
-          {
-            !showSidebar && <span className="logo__text">Univ</span>
-          }
-        </div>
-      </div>
-      <ul className={`un-sidebar__list `}>
-        {
-          !repository.loading && repository.data.map((resp: Sidebar, index: number) => <UNLink value={resp} key={index} showTitle={showSidebar}/>)
+          !repository.loading && repository.data.map((resp: Sidebar, index: number) => <UNLink value={resp} key={index} />)
         }
       </ul>
+      { !showSidebar && <div className="un-sidebar__backdrop" onClick={() => closeOrOpenSidebar(!showSidebar)}></div> }
+      <div className="un-sidebar__render">
+        <div className="un-sidebar__render header">{ headerComponent }</div>
+        <div className="un-sidebar__render components">{ children }</div>
+      </div>
     </nav>
   )
 }

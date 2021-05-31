@@ -14,10 +14,10 @@ import UNHeader from './shared/components/UNHeader';
 
 const App = () => (
   <Router >
-    <div className="row">
+    {/* <div className="row">
       <UNSidebar />
       <div className="column full-with">
-        <UNHeader />
+        
         <Switch>
           <Route path="/" exact component={Dashboard} />
           <Route path="/course" component={Courses} />
@@ -26,7 +26,16 @@ const App = () => (
           <Route path="/transcripts" component={Transcripts} />
         </Switch>
       </div>
-    </div>
+    </div> */}
+    <UNSidebar headerComponent={<UNHeader />} >
+      <Switch>
+        <Route path="/" exact component={Dashboard} />
+        <Route path="/course" component={Courses} />
+        <Route path="/materials" component={Materials} />
+        <Route path="/calendar" component={Calendar} />
+        <Route path="/transcripts" component={Transcripts} />
+      </Switch>
+    </UNSidebar>
   </Router>
 
 );

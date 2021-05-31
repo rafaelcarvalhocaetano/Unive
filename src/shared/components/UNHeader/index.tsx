@@ -33,7 +33,7 @@ const UNHeader: React.FC<any> = (props) => {
           <span className="description__name">Mia V</span>
           <span className="description__type">Student</span>
         </div>
-        <button className="un-info__btn-action">
+        <button className="un-info__btn-action" onClick={() => actionSidebar(!showSidebar)}>
           <img src={dotColumn} alt="Message information" className="icon-full" />
         </button>
         <button className="un-info__btn-sandwich" onClick={() => actionSidebar(!showSidebar)}>
