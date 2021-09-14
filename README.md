@@ -10,4 +10,4 @@
  - https://github.com/rafaelcarvalhocaetano/Unive-API
 
 ## MICRO-SERVICE:
-  - https://github.com/rafaelcarvalhocaetano/Unive-calendar-notification
+  - https://github.com/rafaelcarvalhocaetano/Unive-micro-service
