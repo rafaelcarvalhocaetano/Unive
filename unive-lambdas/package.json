@@ -1,0 +1,29 @@
+{
+  "name": "unive-micro-service",
+  "version": "1.0.0",
+  "description": "Micro-service for application UNIVE notification calendar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "local": "clear && sls offline start --stage",
+    "deploy": "clear && sls deploy --stage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelcarvalhocaetano/Unive-micro-service.git"
+  },
+  "keywords": [
+    "lambda",
+    "micro-service"
+  ],
+  "author": "Rafael Carvalho Caetano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelcarvalhocaetano/Unive-micro-service/issues"
+  },
+  "homepage": "https://github.com/rafaelcarvalhocaetano/Unive-micro-service#readme",
+  "devDependencies": {
+    "serverless": "^2.58.0",
+    "serverless-offline": "^8.1.0"
+  }
+}
